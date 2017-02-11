@@ -1,0 +1,132 @@
+---
+swagger: '2.0'
+info:
+  title: Contacts API
+  description: List of contacts of forever alone people
+  version: "1.0.0"
+basePath: /v1
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /contacts:
+    get:
+      tags:
+        - Contacts
+      description: |
+        Retrieve contacts
+      operationId: retrieveContacts
+      responses:
+        200:
+          description: Contacts retrieved
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Contact"
+        default:
+          description: Operation failed
+          schema:
+            $ref: "#/definitions/Error"
+    post:
+      tags:
+        - Contacts
+      description: |
+        Create new contact
+      operationId: createContact
+      parameters:
+        - name: contact
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/ContactRequest"
+      responses:
+        200:
+          description: Contact created
+          schema: 
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int32
+        default:
+          description: Operation failed
+          schema:
+            $ref: "#/definitions/Error"
+  /contacts/{id}:
+    get:
+      tags:
+        - Contacts
+      description: |
+        Retrieve a specific contact
+      operationId: retrieveContact
+      parameters:
+        - $ref: "#/parameters/id"
+      responses:
+        200:
+          description: Contact retrieved
+          schema:
+            $ref: "#/definitions/Contact"
+        default:
+          description: Operation failed
+          schema:
+            $ref: "#/definitions/Error"
+    put:
+      tags:
+        - Contacts
+      description: |
+        Update a specific contact
+      operationId: updateContact
+      parameters:
+        - $ref: "#/parameters/id"
+      responses:
+        204:
+          description: Contact updated
+        default:
+          description: Operation failed
+          schema:
+            $ref: "#/definitions/Error"
+definitions:
+  Contact:
+    type: object
+    required:
+      - id
+      - name
+      - contact_no
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+      contact_no:
+        type: integer
+        format: int64
+  ContactRequest:
+    type: object
+    required:
+      - name
+      - contact_no
+    properties:
+      name:
+        type: string
+      contact_no:
+        type: integer
+        format: int64
+  Error:
+    type: object
+    required:
+      - message
+    properties:
+      message:
+        type: string
+parameters:
+  id:
+    name: id
+    in: path
+    required: true
+    description: Entity ID
+    type: string
+    format: int64
