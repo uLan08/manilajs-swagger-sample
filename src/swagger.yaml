@@ -81,6 +81,11 @@ paths:
       operationId: updateContact
       parameters:
         - $ref: "#/parameters/id"
+        - name: contact
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/ContactRequest"
       responses:
         204:
           description: Contact updated

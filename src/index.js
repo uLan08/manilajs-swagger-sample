@@ -6,9 +6,15 @@ import { validate as swaggerValidation, ui as swaggerUI } from 'swagger2-koa'
 
 import { routes } from './routes/contacts'
 
+const spec = swagger.loadDocumentSync('./src/swagger.yaml')
+if (!swagger.validateDocument(spec)){
+	throw Error('./src/swagger.yaml is not a Swagger 2.0 schema')
+}
+
 const app = new Koa()
 app.use(jsonBody())
-
+app.use(swaggerValidation(spec))
+app.use(swaggerUI(spec, '/', ['/v1']))
 
 const router = new Router({
 	prefix: '/v1'

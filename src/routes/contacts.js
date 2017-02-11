@@ -9,13 +9,13 @@ export const routes = (router) => {
     router
         .get('/contacts', async (ctx) => {
             ctx.status = 200
-            ctx.body = await getAll()
+            ctx.body = getAll()
         })
         .post('/contacts', async (ctx) => {
             ctx.status = 200
             const data = ctx.request.body
-            data.id = currentId() + 1
-            ctx.body = await add()
+            Object.assign(data, {id: currentId() + 1})
+            ctx.body = {id:add(data)}
         })
         .get('/contacts/:id', async (ctx) => {
             const contact = get(parseInt(ctx.params.id))
@@ -24,7 +24,7 @@ export const routes = (router) => {
                 return
             }
             ctx.status = 200
-            ctx.body = await contact
+            ctx.body = contact
         })
         .put('/contacts/:id', async (ctx) => {
             const contact = get(ctx.params.id)
@@ -33,6 +33,6 @@ export const routes = (router) => {
                 return
             }
             ctx.status = 204
-            await update(contact.id, ctx.request.body)
+            update(contact.id, ctx.request.body)
         })
 }

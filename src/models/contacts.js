@@ -1,12 +1,12 @@
 const contacts = [
     {
         id: 1,
-        name: "Mother",
+        name: "Nanay",
         contact_no: 9163276189
     },
     {
         id: 2,
-        name: "Father",
+        name: "Tatay",
         contact_no: 9347623189
     }
 ]
