@@ -1,4 +1,15 @@
-const contacts = []
+const contacts = [
+    {
+        id: 1,
+        name: "Mother",
+        contact_no: 9163276189
+    },
+    {
+        id: 2,
+        name: "Father",
+        contact_no: 9347623189
+    }
+]
 
 export const add = (contact) => {
     contacts.push(contact)
@@ -17,4 +28,8 @@ export const get = (id) => {
 
 export const getAll = () => {
     return contacts
+}
+
+export const currentId = () => {
+    return Math.max(...contacts.map((contact) => contact.id))
 }
