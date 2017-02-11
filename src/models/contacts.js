@@ -17,8 +17,9 @@ export const add = (contact) => {
 }
 
 export const update = (id, newContact) => {
-    const currentContact = contacts.find((contact) => contact.id === id)
+    const currentContact = get(id)
     const index = contacts.indexOf(currentContact)
+    Object.assign(newContact, {id:id})
     contacts[index] = newContact
 }
 

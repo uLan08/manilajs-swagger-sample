@@ -4,6 +4,7 @@ import jsonBody from 'koa-json-body'
 import swagger from 'swagger2'
 import { validate as swaggerValidation, ui as swaggerUI } from 'swagger2-koa'
 
+import { errorHandler } from './errors'
 import { routes } from './routes/contacts'
 
 const spec = swagger.loadDocumentSync('./src/swagger.yaml')
@@ -12,6 +13,7 @@ if (!swagger.validateDocument(spec)){
 }
 
 const app = new Koa()
+app.use(errorHandler())
 app.use(jsonBody())
 app.use(swaggerValidation(spec))
 app.use(swaggerUI(spec, '/', ['/v1']))

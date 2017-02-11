@@ -1,4 +1,4 @@
-import { add, get, update, getAll, currentId } from '../models/contacts'
+import { add, get, update, getAll, currentId, del } from '../models/contacts'
 
 const notFound = {
 	status: 404,
@@ -19,7 +19,7 @@ export const routes = (router) => {
         })
         .get('/contacts/:id', async (ctx) => {
             const contact = get(parseInt(ctx.params.id))
-            if(!contact){
+            if (!contact) {
                 Object.assign(ctx, notFound)
                 return
             }
@@ -27,8 +27,8 @@ export const routes = (router) => {
             ctx.body = contact
         })
         .put('/contacts/:id', async (ctx) => {
-            const contact = get(ctx.params.id)
-            if(!contact){
+            const contact = get(parseInt(ctx.params.id))
+            if (!contact) {
                 Object.assign(ctx, notFound)
                 return
             }
