@@ -1,25 +1,4 @@
-const contacts = [
-    {
-        id: 1,
-        name: "Nanay",
-        contact_no: 9163276189
-    },
-    {
-        id: 2,
-        name: "Tatay",
-        contact_no: 9347623189
-    },
-    {
-        id: 3,
-        name: "Balance Inquiry",
-        contact_no: 222
-    },
-    {
-        id: 4,
-        name: "Globe Rewards",
-        contact_no: 4438
-    }
-]
+const contacts = []
 
 export const addContact = (contact) => {
     contacts.push(contact)
@@ -42,5 +21,5 @@ export const getContacts = () => {
 }
 
 export const getCurrentId = () => {
-    return Math.max(...contacts.map((contact) => contact.id))
+    return contacts.length > 0 ? Math.max(...contacts.map((contact) => contact.id)) : 0
 }
