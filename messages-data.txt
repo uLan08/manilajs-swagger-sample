@@ -1,4 +1,4 @@
-{ "contact": {"id": 1,"name": "Nanay","contact_no": 9163276189},"message": "Anak, bakit ang bilis maubos ng tissue natin?"}
-{ "contact": {"id": 2,"name": "Tatay","contact_no": 9347623189},"message": "Anak, samahan mo ako mamayang gabi. Hanap tayo ng girlprend mo."}
-{ "contact": {"id": 3,"name": "Balance Inquiry","contact_no": 222},"message": "You have Php 0.00 balance remaining"}
-{ "contact": {"id": 4,"name": "Globe Rewards","contact_no": 4438},"message": "GLOBE REWARDS: You have earned 1000 points"}
+{ "contact": {"id": 1,"name": "Nanay","contact_no": 9163276189},"message": "Anak, tigilan mo na lumaro ng dota diyan. Kain na tayo."}
+{ "contact": {"id": 2,"name": "Tatay","contact_no": 9347623189},"message": "Anak, kailan ka pa ba mag ka girlprend?"}
+{ "contact": {"id": 3,"name": "Balance Inquiry","contact_no": 222},"message": "You have Php 0.00 balance remaining."}
+{ "contact": {"id": 4,"name": "Globe Rewards","contact_no": 4438},"message": "GLOBE REWARDS: You have earned 1000 points!"}
