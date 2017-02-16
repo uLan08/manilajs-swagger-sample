@@ -8,6 +8,16 @@ const contacts = [
         id: 2,
         name: "Tatay",
         contact_no: 9347623189
+    },
+    {
+        id: 3,
+        name: "Balance Inquiry",
+        contact_no: 222
+    },
+    {
+        id: 4,
+        name: "Globe Rewards",
+        contact_no: 4438
     }
 ]
 
