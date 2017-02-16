@@ -21,26 +21,26 @@ const contacts = [
     }
 ]
 
-export const add = (contact) => {
+export const addContact = (contact) => {
     contacts.push(contact)
     return contact.id
 }
 
-export const update = (id, newContact) => {
-    const currentContact = get(id)
+export const updateContact = (id, newContact) => {
+    const currentContact = getContact(id)
     const index = contacts.indexOf(currentContact)
     Object.assign(newContact, {id:id})
     contacts[index] = newContact
 }
 
-export const get = (id) => {
+export const getContact = (id) => {
     return contacts.find((contact) => contact.id === id)
 }
 
-export const getAll = () => {
+export const getContacts = () => {
     return contacts
 }
 
-export const currentId = () => {
+export const getCurrentId = () => {
     return Math.max(...contacts.map((contact) => contact.id))
 }
