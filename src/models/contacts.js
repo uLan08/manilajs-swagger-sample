@@ -1,46 +1,25 @@
-const contacts = [
-    {
-        id: 1,
-        name: "Nanay",
-        contact_no: 9163276189
-    },
-    {
-        id: 2,
-        name: "Tatay",
-        contact_no: 9347623189
-    },
-    {
-        id: 3,
-        name: "Balance Inquiry",
-        contact_no: 222
-    },
-    {
-        id: 4,
-        name: "Globe Rewards",
-        contact_no: 4438
-    }
-]
+const contacts = []
 
-export const add = (contact) => {
+export const addContact = (contact) => {
     contacts.push(contact)
     return contact.id
 }
 
-export const update = (id, newContact) => {
-    const currentContact = get(id)
+export const updateContact = (id, newContact) => {
+    const currentContact = getContact(id)
     const index = contacts.indexOf(currentContact)
     Object.assign(newContact, {id:id})
     contacts[index] = newContact
 }
 
-export const get = (id) => {
+export const getContact = (id) => {
     return contacts.find((contact) => contact.id === id)
 }
 
-export const getAll = () => {
+export const getContacts = () => {
     return contacts
 }
 
-export const currentId = () => {
-    return Math.max(...contacts.map((contact) => contact.id))
+export const getCurrentId = () => {
+    return contacts.length > 0 ? Math.max(...contacts.map((contact) => contact.id)) : 0
 }
