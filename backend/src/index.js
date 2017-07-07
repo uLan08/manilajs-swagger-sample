@@ -3,6 +3,7 @@ import Router from 'koa-router'
 import jsonBody from 'koa-json-body'
 import swagger from 'swagger2'
 import { validate as swaggerValidation, ui as swaggerUI } from 'swagger2-koa'
+import cors from 'koa2-cors'
 
 import { errorHandler } from './errors'
 
@@ -16,6 +17,7 @@ if (!swagger.validateDocument(spec)){
 
 const app = new Koa()
 app.use(errorHandler())
+app.use(cors())
 app.use(jsonBody())
 app.use(swaggerValidation(spec))
 app.use(swaggerUI(spec, '/', ['/v1']))

@@ -22,6 +22,7 @@
     "koa-json-body": "^5.2.0",
     "koa-router": "^7.1.0",
     "koa2": "^2.0.0-alpha.7",
+    "koa2-cors": "^2.0.3",
     "swagger2": "0.0.21",
     "swagger2-koa": "0.0.32"
   }
